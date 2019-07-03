@@ -1,17 +1,16 @@
-# a million commits
 for Y in {2017..2019}
 do
   mkdir $Y
   cd $Y
-  for M in {01..12}
+  for M in {1..12}
   do
     mkdir $M
     cd $M
-    for D in {01..31}
+    for D in {1..31}
     do
       mkdir $D
       cd $D
-      for i in {01..12}
+      for i in {1..9}
       do
         echo "$i on $M/$D/$Y" > commit.md
         export GIT_COMMITTER_DATE="$Y-$M-$D 12:$i:00"
@@ -26,7 +25,5 @@ do
   cd ../
 done
 git push origin master
-git rm -rf 20**
-git rm -rf 19**
-git commit -am "cleanup"
+git commit -m "cleanup"
 git push origin master
